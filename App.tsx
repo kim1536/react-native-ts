@@ -53,7 +53,7 @@ const App = () => {
   // todos: {id: Number, textValue: string, checked: boolean }
   const [todos, setTodos] = useState<Array<TodosModel>>([]);
 
-  const addTodo = (text:string)=> {
+  const addTodo = (text: string)=> {
     setTodos([
       ...todos,
       {id: Math.random().toString(), textValue: text, checked: false},
@@ -70,7 +70,7 @@ const App = () => {
       </View>
       <View style={styles.card}>
       <TodoInsert />
-      <TodoList todos={todos}/>
+      <TodoList {...todos}/>
       </View>
     </SafeAreaView>
   );

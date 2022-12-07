@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const TodoListItem = () => {
+const TodoListItem = ({textValue, id, checked}:any) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity>
@@ -54,7 +54,7 @@ const TodoListItem = () => {
         </View>
       </TouchableOpacity>
       <Text style={[styles.text, styles.strikeText]}>
-        items will be shown here
+        {textValue}
       </Text>
       <TouchableOpacity style={styles.buttonContainer}>
         <Text>
