@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, ScrollView, Text} from 'react-native';
+import { TodosModel } from '../App';
 import TodoListItem from './TodoListItem';
 
 const styles = StyleSheet.create({
@@ -8,7 +9,7 @@ const styles = StyleSheet.create({
     },
   });
 
-const TodoList = () => {
+const TodoList = ({ todos }: { todos: any;}): JSX.Element => {
     return (
       <ScrollView contentContainerStyle={styles.listContainer}>
         <TodoListItem />

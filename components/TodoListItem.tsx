@@ -53,7 +53,14 @@ const TodoListItem = () => {
           <AntDesign name="circledowno" size={30} color="#3143e8" />
         </View>
       </TouchableOpacity>
-      <Text style={styles.text}>TodoList items will be shown here</Text>
+      <Text style={[styles.text, styles.strikeText]}>
+        items will be shown here
+      </Text>
+      <TouchableOpacity style={styles.buttonContainer}>
+        <Text>
+          <AntDesign name="delete" size={30} color="#e33057" />
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };

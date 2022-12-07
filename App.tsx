@@ -1,24 +1,14 @@
-import React, {type PropsWithChildren} from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
-  ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
-  TextInput,
-  useColorScheme,
   View,
 } from 'react-native';
 import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
 
-// import {
-//   Colors,
-//   DebugInstructions,
-//   Header,
-//   LearnMoreLinks,
-//   ReloadInstructions,
-// } from 'react-native/Libraries/NewAppScreen';
+
 
 const styles = StyleSheet.create({
   container: {
@@ -53,7 +43,24 @@ const styles = StyleSheet.create({
   },
 });
 
+export interface TodosModel {
+  id: string;
+  textValue: string;
+  checked: boolean
+}
+
 const App = () => {
+  // todos: {id: Number, textValue: string, checked: boolean }
+  const [todos, setTodos] = useState<Array<TodosModel>>([]);
+
+  const addTodo = (text:string)=> {
+    setTodos([
+      ...todos,
+      {id: Math.random().toString(), textValue: text, checked: false},
+    ]);
+  };
+
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.titleContainer}>
@@ -63,7 +70,7 @@ const App = () => {
       </View>
       <View style={styles.card}>
       <TodoInsert />
-      <TodoList />
+      <TodoList todos={todos}/>
       </View>
     </SafeAreaView>
   );
