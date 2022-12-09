@@ -18,7 +18,7 @@ const TodoList = ({todos}:TodoProps): JSX.Element => {
     return (
         <ScrollView contentContainerStyle={styles.listContainer}>
           {todos.map((todo,idx) => (
-            <TodoListItem  key={idx} {...todo}/>
+            <TodoListItem  key={todo.id} {...todo}/>
 
           ))}
         </ScrollView>

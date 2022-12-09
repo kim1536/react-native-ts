@@ -69,7 +69,7 @@ const App = () => {
         </Text>
       </View>
       <View style={styles.card}>
-      <TodoInsert />
+      <TodoInsert onAddTodo={addTodo}/>
       <TodoList todos = {todos}/>
       </View>
     </SafeAreaView>

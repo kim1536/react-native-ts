@@ -24,7 +24,7 @@ const TodoInsert = ({onAddTodo}:any) => {
 
   const [newTodoItem, setNewTodoItem] = useState('');
 
-  const todoInputHandler = (newTodo: any): void => {
+  const todoInputHandler = (newTodo:string): void => {
     setNewTodoItem(newTodo);
   };
 
