@@ -1,7 +1,11 @@
 import React, { ReactElement } from 'react';
-import {StyleSheet, ScrollView, Text} from 'react-native';
+import {StyleSheet, ScrollView, Text, View} from 'react-native';
 import { TodosModel } from '../App';
 import TodoListItem from './TodoListItem';
+
+interface TodoProps {
+  todos: TodosModel[]
+}
 
 const styles = StyleSheet.create({
     listContainer: {
@@ -9,11 +13,13 @@ const styles = StyleSheet.create({
     },
   });
 
-const TodoList = (todos:TodosModel[]): JSX.Element => {
+const TodoList = ({todos}:TodoProps): JSX.Element => {
+  
     return (
         <ScrollView contentContainerStyle={styles.listContainer}>
-          {todos.map((todo) => (
-             <TodoListItem key={todo.id} {...todo} />
+          {todos.map((todo,idx) => (
+            <TodoListItem  key={idx} {...todo}/>
+
           ))}
         </ScrollView>
     );

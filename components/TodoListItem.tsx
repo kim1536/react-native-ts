@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign'
+import { TodosModel } from '../App';
 
 
 const styles = StyleSheet.create({
@@ -45,7 +46,8 @@ const styles = StyleSheet.create({
   },
 });
 
-const TodoListItem = ({textValue, id, checked}:any) => {
+const TodoListItem = ({...todo}:TodosModel) => {
+
   return (
     <View style={styles.container}>
       <TouchableOpacity>
@@ -54,7 +56,7 @@ const TodoListItem = ({textValue, id, checked}:any) => {
         </View>
       </TouchableOpacity>
       <Text style={[styles.text, styles.strikeText]}>
-        {textValue}
+        {todo.textValue}
       </Text>
       <TouchableOpacity style={styles.buttonContainer}>
         <Text>
