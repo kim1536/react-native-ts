@@ -3,6 +3,10 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {TodosModel} from '../App';
 
+interface TodoProps {
+  onDelete: (id: string) => void;
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -45,7 +49,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const TodoListItem = ({...todo}: TodosModel) => {
+const TodoListItem = ({...todo}: TodosModel, {onDelete}: TodoProps) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity>
@@ -55,7 +59,7 @@ const TodoListItem = ({...todo}: TodosModel) => {
       </TouchableOpacity>
       <Text style={[styles.text, styles.strikeText]}>{todo.textValue}</Text>
       <TouchableOpacity style={styles.buttonContainer}>
-        <Text>
+        <Text onPress={() => onDelete(todo.id)}>
           <AntDesign name="delete" size={30} color="#e33057" />
         </Text>
       </TouchableOpacity>

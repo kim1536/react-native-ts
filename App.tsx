@@ -53,6 +53,11 @@ const App = () => {
     ]);
   };
 
+  const onDelete = (id: string): void => {
+    setTodos(todos.filter(todo => todo.id !== id));
+    console.log(id);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.titleContainer}>
@@ -60,7 +65,7 @@ const App = () => {
       </View>
       <View style={styles.card}>
         <TodoInsert onAddTodo={addTodo} />
-        <TodoList todos={todos} />
+        <TodoList todos={todos} {...onDelete} />
       </View>
     </SafeAreaView>
   );
