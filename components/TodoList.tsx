@@ -1,30 +1,26 @@
-import React, { ReactElement } from 'react';
-import {StyleSheet, ScrollView, Text, View} from 'react-native';
-import { TodosModel } from '../App';
+import React from 'react';
+import {StyleSheet, ScrollView} from 'react-native';
+import {TodosModel} from '../App';
 import TodoListItem from './TodoListItem';
 
 interface TodoProps {
-  todos: TodosModel[]
+  todos: TodosModel[];
 }
 
 const styles = StyleSheet.create({
-    listContainer: {
-      alignItems: 'center',
-    },
-  });
+  listContainer: {
+    alignItems: 'center',
+  },
+});
 
-const TodoList = ({todos}:TodoProps): JSX.Element => {
-  
-    return (
-        <ScrollView contentContainerStyle={styles.listContainer}>
-          {todos.map((todo,idx) => (
-            <TodoListItem  key={todo.id} {...todo}/>
+const TodoList = ({todos}: TodoProps): JSX.Element => {
+  return (
+    <ScrollView contentContainerStyle={styles.listContainer}>
+      {todos.map((todo, _idx) => (
+        <TodoListItem key={todo.id} {...todo} />
+      ))}
+    </ScrollView>
+  );
+};
 
-          ))}
-        </ScrollView>
-    );
-  };
-  
-  
-  
-  export default TodoList;
+export default TodoList;

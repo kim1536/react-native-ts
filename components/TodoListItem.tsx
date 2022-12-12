@@ -1,8 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import AntDesign from 'react-native-vector-icons/AntDesign'
-import { TodosModel } from '../App';
-
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import {TodosModel} from '../App';
 
 const styles = StyleSheet.create({
   container: {
@@ -46,8 +45,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const TodoListItem = ({...todo}:TodosModel) => {
-
+const TodoListItem = ({...todo}: TodosModel) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity>
@@ -55,9 +53,7 @@ const TodoListItem = ({...todo}:TodosModel) => {
           <AntDesign name="circledowno" size={30} color="#3143e8" />
         </View>
       </TouchableOpacity>
-      <Text style={[styles.text, styles.strikeText]}>
-        {todo.textValue}
-      </Text>
+      <Text style={[styles.text, styles.strikeText]}>{todo.textValue}</Text>
       <TouchableOpacity style={styles.buttonContainer}>
         <Text>
           <AntDesign name="delete" size={30} color="#e33057" />

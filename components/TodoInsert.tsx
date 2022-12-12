@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Button, StyleSheet, TextInput, View } from 'react-native';
+import React, {useState} from 'react';
+import {Button, StyleSheet, TextInput, View} from 'react-native';
 
 const styles = StyleSheet.create({
   inputContainer: {
@@ -20,11 +20,10 @@ const styles = StyleSheet.create({
   },
 });
 
-const TodoInsert = ({onAddTodo}:any) => {
-
+const TodoInsert = ({onAddTodo}: any) => {
   const [newTodoItem, setNewTodoItem] = useState('');
 
-  const todoInputHandler = (newTodo:string): void => {
+  const todoInputHandler = (newTodo: string): void => {
     setNewTodoItem(newTodo);
   };
 
@@ -32,9 +31,9 @@ const TodoInsert = ({onAddTodo}:any) => {
     onAddTodo(newTodoItem);
     setNewTodoItem('');
   };
-  
+
   return (
-  <View style={styles.inputContainer}>
+    <View style={styles.inputContainer}>
       <TextInput
         style={styles.input}
         placeholder="Add an item!"
