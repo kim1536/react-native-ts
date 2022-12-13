@@ -1,14 +1,11 @@
 import React from 'react';
-import {StyleSheet, ScrollView} from 'react-native';
-import {TodosModel} from '../App';
+import {StyleSheet, ScrollView, GestureResponderEvent} from 'react-native';
+import {TodosModel as TodoModel} from '../App';
 import TodoListItem from './TodoListItem';
 
 interface TodoProps {
-  todos: TodosModel[];
-}
-
-interface RemoveProps {
-  onDelete(id: string): void;
+  todos: TodoModel[];
+  onDelete(event: GestureResponderEvent, id: string): void;
 }
 
 const styles = StyleSheet.create({
@@ -17,11 +14,12 @@ const styles = StyleSheet.create({
   },
 });
 
-const TodoList = ({todos}: TodoProps, onDelete: RemoveProps): JSX.Element => {
+const TodoList = (props: TodoProps): JSX.Element => {
+  const { todos, onDelete } = props;
   return (
     <ScrollView contentContainerStyle={styles.listContainer}>
       {todos.map((todo, _idx) => (
-        <TodoListItem key={todo.id} {...todo} {...onDelete} />
+        <TodoListItem key={todo.id} todo={todo} onDelete={onDelete} />
       ))}
     </ScrollView>
   );

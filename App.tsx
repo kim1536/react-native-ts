@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {GestureResponderEvent, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
 
@@ -53,9 +53,9 @@ const App = () => {
     ]);
   };
 
-  const onDelete = (id: string): void => {
+  const onDelete = (event: GestureResponderEvent, id: string): void => {
+    event.preventDefault();
     setTodos(todos.filter(todo => todo.id !== id));
-    console.log(id);
   };
 
   return (
@@ -65,7 +65,7 @@ const App = () => {
       </View>
       <View style={styles.card}>
         <TodoInsert onAddTodo={addTodo} />
-        <TodoList todos={todos} {...onDelete} />
+        <TodoList todos={todos} onDelete={onDelete} />
       </View>
     </SafeAreaView>
   );
