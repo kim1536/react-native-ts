@@ -1,6 +1,11 @@
 import React, {useState} from 'react';
 import {Button, StyleSheet, TextInput, View} from 'react-native';
 
+interface TodoProps {
+  onAddTodo(text: string): void;
+}
+
+
 const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
@@ -20,7 +25,8 @@ const styles = StyleSheet.create({
   },
 });
 
-const TodoInsert = ({onAddTodo}: any) => {
+const TodoInsert = (props: TodoProps) => {
+  const { onAddTodo } = props;
   const [newTodoItem, setNewTodoItem] = useState('');
 
   const todoInputHandler = (newTodo: string): void => {

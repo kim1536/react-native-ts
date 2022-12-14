@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const TodoList = (props: TodoProps): JSX.Element => {
+const TodoList = (props: TodoProps) => {
   const { todos, onDelete } = props;
   return (
     <ScrollView contentContainerStyle={styles.listContainer}>
